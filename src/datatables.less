@@ -1,0 +1,740 @@
+/* COLOR 
+ */
+
+ 
+/* global style variables - these are re-used through multiple scopes */
+.settings_cell_bkg {
+
+	border-top: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
+	font-weight: bold;
+}
+
+.settings_cell{
+	background: rgb(229, 250, 230); /*NOTE: Do NOT Change this to light blue, because subheader is already light blue*/
+	
+	.settings_cell_bkg;
+}
+
+.grand_total_cell{
+	background: #eee;
+	.settings_cell_bkg;
+}
+	
+	
+.generic_item_cell{
+	background:#fcfcfc;
+	border-top:solid 1px #ddd;
+}
+	
+
+	
+	
+tr {
+
+    &.item{
+	
+	    &.highlight_on_hover {
+		    td {
+			    &.bg_green{
+					background-color:#008822;
+					color:#ffffff;
+				}
+				&.bg_red {
+					background-color:#ff0000;
+					color:#ffffff;
+				}
+				&.bg_green {
+					color:#008822;
+				}
+				&.bg_red {
+					color:#ff0000;
+				}
+			}
+		}
+		span{
+            &.dim{
+				color:#9E9E9E;
+			}
+	    }
+	}
+	
+	/*
+	 For notes that consume a row on a report - such as on the schedule entry report 
+	*/
+	&.notes_row{
+	   td{
+		 border-top: solid 1px #ddd;
+		 color:#5E787D;	
+	   }
+	   span{
+	       &.dim{
+		   	    color:#9E9E9E;
+		   }
+	   }
+	}
+	span{
+	   &.dim{
+			color:#9E9E9E;
+	   }
+    }
+   
+	/* DataTables row classes */
+	.odd {
+		background-color: #eee;
+	}
+	.even {
+		background-color: white;
+	}
+	
+	/*
+	Darker border for table arrows, applied when we want the user to focus on that row
+	*/
+	&.border_grey {
+		td{
+			border-top: solid 1px #555;
+			border-bottom: solid 1px #555;
+		}
+	}
+			
+	&.column_group {
+		td{
+			font-size:12px;
+			border: solid 1px #bbb;
+			color:#000;
+			background:#ddd;
+		}
+	}
+
+	&.subgroup_child {
+		td {
+			div {
+				&.brand_label, 
+				tr{
+					&.child {
+						div:first-child{
+							margin-left:20px;	
+						}					
+					}
+				}
+			}
+		}
+	}
+	
+	td:first-child, 
+	th:first-child {
+		&.indent{
+			padding-left: 20px;	
+			text-align:left;
+		}
+	}
+
+	&.total_group td, 
+	&.settings_row td{
+		.settings_cell;
+	}
+
+	/* set background to orange for total_group but not setting rows*/
+	&.total_group {
+		td {
+			background: #FAC08F;
+		}
+	}
+	&.grand_total {
+		td {
+			.generic_item_cell;
+		}
+	}
+	&[data-item] {
+		td {
+			.generic_item_cell;
+		}
+	}
+	&.header_row_grey {
+		td {
+			background: #ddd;
+			border-top: solid 1px #aaa;
+			border-bottom: solid 1px #aaa;
+		}
+	}
+	&.highlight_on_hover {
+		td {
+			border-top:solid 1px #ddd;
+		}
+	}
+	&.subheader {
+	   td {
+			background:#eee;
+			border-top: solid 1px #ddd;
+			border-bottom: solid 1px #ddd;
+		}
+	}
+	&.percent_gp {
+	   td {
+			color:#000;
+			background:#fff;
+		}
+	}
+
+	/*
+	  Used for header row when we want one in the middle of a table - in other words - mimicing the look of our th's in the main header of the reports
+	*/
+	&.header_row {
+	   td {
+			text-align: left;
+			font-weight: bold;
+			font-size: 12px;
+			background: #ddd;
+			color: #444;
+			border-bottom: 1px solid #bbb;
+		}
+	}
+	&.header_row:hover {	
+	    cursor: pointer;
+	}
+	&.header_row_total {
+	   td {
+			font-size: 15px;
+			color: #ee0000;
+		}
+	}
+	&.subgroup_parent:hover {	
+	    cursor: pointer;
+	}
+	&.group_parent:hover {	
+	    cursor: pointer;
+	}
+}
+
+
+
+
+
+
+
+td {
+    &.data{
+	
+	    &.bg_green{	
+		
+			background-color:#008822;
+			color:#ffffff;
+		}
+	    &.bg_red{		
+			background-color:#ff0000;
+			color:#ffffff;
+		}
+		&.bg_orange {
+			background-color:#FFB300;
+			color:#ffffff;
+		}
+	}
+	
+	/* class used to hold label in first column */
+	.label{
+		text-align:left;
+		width:270px;
+		div{
+	        width:100%;	
+		}
+	}
+	
+	/* For vertical borders on a highlighted column */
+	&.borders_grey_vertical {
+		
+		border-left: solid 1px #aaa;
+		border-right: solid 1px #aaa;
+	}
+	div {	
+		.brand_data_label{
+			 text-align:left;
+			 width: 60px;
+		}
+		&.brand_label{
+		    width: 150px;
+		}
+		&.label_account_group_subheader{
+			float:left;
+			margin-left: 5px;
+			font-weight:900;
+		}
+		&.label_account_number_subheader{
+			float:left;
+			margin-left: 10px;	
+			width:300px;
+			text-align:left;
+		}
+	}
+	/* class used to hold label in first column */
+	&.brand_label{
+		.ui_icon_wrap{
+			float: left;
+			margin-right: 3px;
+		}
+	}
+} 
+ 
+
+
+
+ 
+th {
+	span{
+	   &.dim{
+			color:#9E9E9E;
+	   }
+   }
+   .show_hide{
+		font-size:13px;
+	}
+} 
+ 
+
+#report_panels {
+    table.display {
+        & tbody {
+            & tr.highlight_on_hover:hover {
+                & td.bg_green {
+                    background-color:#008822;
+                    border-bottom: solid 1px #ddd;
+                    border-top:solid 1px #ddd;
+                }
+                & td.bg_red {
+                    background-color:#ff0000;
+                    border-bottom: solid 1px #ddd;
+                    border-top:solid 1px #ddd;
+                }
+                & td.bg_orange {
+                    color:#fff;
+                    background-color:#FFB300;
+                    border-bottom: solid 1px #ddd;
+                    border-top:solid 1px #ddd;
+                }
+            }
+            & tr.highlight_on_hover {
+                & td.bg_red.highlight.borders_grey_vertical {
+                    background-color:#ff0000;
+                    border-bottom: solid 1px #ddd;
+                    border-top:solid 1px #ddd;
+                }
+                & td.bg_orange.highlight.borders_grey_vertical {
+                    color:#fff;
+                    background-color:#FFB300;
+                    border-bottom: solid 1px #ddd;
+                    border-top:solid 1px #ddd;
+                }
+            }
+            & tr.total_group.highlight_on_hover:hover {
+                & td.bg_green {
+                    color:#008822;
+                    background-color:#ffb;
+                    border-top:1px solid black;
+                    border-bottom:1px solid black;
+                }
+                & td.bg_red {
+                    color:#ff0000;
+                    background-color:#ffb;
+                    border-top:1px solid black;
+                    border-bottom:1px solid black;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/* * * * *
+ * DataTables display
+ */
+table{
+	.display {
+		margin: 0 auto;
+		width: 100%;
+		
+		/*the item rows all have a border top - so we need this so that last row will have a border on the bottom*/
+		border-bottom: solid 1px #ddd;
+		
+		th {
+			padding: 4px 2px;
+			border-bottom: none;
+			font-size: 12px;
+			
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;	
+			
+			&.superSummary {
+				background-color: #444;
+				color:#fff;
+				font-size:13px;
+				padding-left:10px;
+				padding-right:10px;
+				text-align:right;
+			}
+		}
+        tr{
+		    &.heading2 {
+			    td{
+	                border-bottom: 1px solid #aaa;
+				}
+			}
+			&.subheader {
+				td{
+
+					line-height: 1.3em;
+				}
+			}
+			&.total_group {
+				td {
+					&.text_xlrg {
+						font-size: 22px;
+						font-weight: bold;		
+					}
+				}
+			}
+			&.ui-widget-header {
+				td:first-child {
+					border-left: 1px solid #333;
+					line-height: 1.4em;
+					font-size: 14px;
+				}
+				td:last-child {
+					border-right: 1px solid #333;	
+				}
+			}
+		}
+        td{
+
+		    font-size: 12px;	
+			line-height: 1.3em;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;	
+			
+		    padding:4px 4px;
+			
+			&.notes {
+				padding:0;
+				width:20px;
+			}
+			&.center {
+	            text-align: center;
+			}
+			&.right {
+	            text-align: right;
+			}
+		}
+		td:first-child {
+			border-left: 1px solid #ddd;
+		}
+		td:last-child {
+			border-left: 1px solid #ddd;
+		}	
+		/*the table is one of multiple, non nested tables*/
+		&.margin-bottom {
+			margin-bottom: 10px;
+		}	
+        tbody {
+		    tr {
+			    td {
+				
+				    &.vertical_border_left {
+						border-left: solid 2px #ccc;
+					}
+                    &.total_average_columns {
+						background:#EFFFEF !important;
+						font-weight:bold;
+					}
+				}
+			}
+		} 		
+	}
+	tbody {
+	    tr {
+		    &item{
+			    td {
+				    &.bold_not_nested {
+						font-weight:bold;
+					}
+				}
+			}
+			&.nested {
+				td {
+	                padding-left:20px;
+					
+				    &.bold_not_nested {
+						font-weight:normal;
+					}
+				}
+			}
+			&.total_group {
+			    td {
+								
+					.settings_cell;
+				}
+			}
+			&.total_grand {
+			    td {
+								
+	                &.grand_total_cell;
+				}
+			}
+			&.total_group {
+				&.subtotal {
+					td{
+						background:#fff;
+					}
+				}
+			}
+			&.highlight {
+			    td {
+					background:#ffb;
+				}
+			}
+			td {
+				&.highlight{
+					background:#ffb;
+				}
+			}
+			
+			&.header_row{
+				&.highlight {
+					td{
+						background:#eee;	
+						color:#104478;
+					}
+				}
+			}
+			
+			
+			&.border_bottom_grey{
+			    td {
+					border-bottom: solid 2px #CCC;
+				}
+			}
+			&.border_bottom_medium_grey{
+			    td {
+					border-bottom: solid 1px #aaa;
+				}
+			}
+			
+			
+		}	
+	}
+}
+
+
+
+
+#content {
+
+    table {
+	    &.display{
+	        tbody {
+			    tr {
+				    &.highlight_on_hover:hover{
+					    td {
+							border-top:solid 1px #555;
+							border-bottom:solid 1px #555;
+							background:#ffb;
+						}
+					}
+				}
+			}
+	    }
+	}
+
+}
+
+
+div {
+
+    &.brand_label {
+	    div {
+		    &.group_total_label{
+			
+	            font-size:13px;
+			}
+		}
+	}
+	
+
+	&.dataTables_wrapper {
+		.ui-widget-header {
+			font-weight: normal;
+		}
+	}
+
+	
+	/**
+	Used in DEPRECATED "datatables-rr-custom.js" - can remove once we've ditched all old data-tables using reports
+	*/
+	&.reposition_fixed_header{
+		position: fixed !important;
+		top: 125px !important;
+	}
+}
+
+
+
+
+
+
+
+.item {
+	td{
+		.generic_item_cell;
+	}
+}
+
+
+
+
+
+.drilldown_body {
+    tr {
+	    .notes_row{
+			div{
+				max-width:250px;
+			}
+		}  
+	}
+}
+
+
+.show_hide_sales{
+	font-size:13px;
+}
+
+/* special borders */
+
+.border_right {
+	border-right: 2px solid #ccc;
+}
+
+
+ 
+ /*
+ for note's icon the displays in the inventory report and a few others
+ */
+ .note_icon_wrap {
+	 span{
+		display: inline-block;
+		cursor: pointer;
+	 } 
+ }
+  
+
+ 
+ /* .divFormAddNote replacing #divFormAddNote */
+ #divFormAddNote, .divFormAddNote{
+	position: fixed;
+	left: 40%;
+	display: none;
+	z-index: 1000;
+	width: auto;
+	height: auto;
+	background:#fff;
+	border: solid 1px #444;
+	width: 400px;
+	height: auto;
+	max-height: 500px;
+	overflow-x: hidden;
+	overflow-y: auto;
+ }
+ 
+ #note_info, #divFormAddNote > form{
+	 padding:3px;
+ }
+ 
+ .note_info, .divFormAddNote > form{
+	 padding:3px;
+ }
+ 
+  #divFormAddNote > .ui-widget-header{
+	  padding:3px;
+	  text-align:left;
+  }
+  
+  .divFormAddNote > .ui-widget-header{
+	  padding:3px;
+	  text-align:left;
+  }
+ 
+ textarea.note_text{
+	width: 98%; 
+	height: 60px;
+ }
+ 
+ .recent_notes{
+	max-width:400px;
+	min-width:100px;
+ }
+ 
+.datatables_total_all td{
+	background:#ddd;
+}
+
+.datatables_total_filtered td{
+	background:#ddd;	
+}
+
+.datatables_total_filtered td,.datatables_total_all td{
+	font-size:14px;
+	border: solid 1px #c1c1c1;
+	color:#000;
+}
+
+.show_hide {
+	width: 145px;
+	text-align:left;
+	float:left;
+	padding: 0 0 0 3px;
+}
+
+.show_hide .text{
+	padding-left: 3px;
+}
+
+.show_hide span:hover{
+	color:#00539f;
+}
+
+.show_hide_sales{
+	width:120px;
+	float: right; text-align:left; padding-right:3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.dataTables_wrapper .ui-toolbar {
+	padding: 5px;
+}
+
+.dataTables_paginate {
+	width: auto;
+}
+
+.dataTables_info {
+	padding-top: 3px;
+	text-align:left;
+	float: left;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+@RRBlue: #0079C2;
+@ReportPanelBorder: #A3A3CE;
+@FontWhite: #ffffff;
+@OrangeTotals: #DBAE5A;
+
+
+/*
+Used by main grid rendering components: grid_view.js, grid_tree_view.js
+*/
+
+.test{font-size: 12px;}
+
+/*
+ Used grid tree specific report styles
+ */
+div.report_panel {
+
+	table.display {
+	
+		tr {
+			&.column_group{
+			
+				 td {
+
+					font-size: 12px;
+					font-weight: bold;
+					color: @FontWhite;
+					background: @RRBlue;
+					border: solid 1px @ReportPanelBorder;
+				}	
+				span{
+					span.pictos_icon.expand_collapse.pointer{							
+						color: @FontWhite;
+					}
+				}			
+			}
+			&.grid_tree_top_level{
+			
+				td {
+				
+					background: #ddd;
+					border-bottom: 1px solid #bbb;
+					
+					&.colShaded_ {
+						background: #e9eeee;
+					}
+				}
+				&.subheader td {
+
+					background: #92CDDC;
+					border-bottom: 1px solid #bbb;
+				}
+				&.top_level_sums {
+
+					td {
+
+						background-color: #92CDDC;
+						border-color: #007BAB;
+						border-bottom: 1px solid #bbb;
+					}
+
+					&.top_level_sums.grand_total { 
+						td {
+							background-color: #FAC08F;
+							border-color: #DBAE5A;
+						}
+						td.hover  {
+							background-color: #FFA231;
+						}
+					}
+				}
+			}		
+		}
+		
+		td.panelSeparator,
+		th.ui-state-default.panelSeparator
+		{
+			border-top: 0 !important;
+			border-bottom: 0 !important;
+			border-left: 1px solid #DDD;
+			border-right: 1px solid #DDD;
+			background: none !important;
+		}
+	}
+}
+
+// available globally.. only used in benchmarks 
+/*
+ Used for informational key explaining meaning of color in report
+ */
+.infoKey {
+	
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	/*background-color: red;*/
+	vertical-align: middle;
+	
+	&.focusDiff {
+		background-color: #D9FFA1;
+		border: 1px solid #B3E36D;
+	}
+}
+
+
+.item {
+	 td {
+		&.colShaded_ {
+			background-color: #f5f5f5;
+		}
+		&.focusDiff {
+			background: #D9FFA1;
+		}
+	}
+}
+
+
+
+.total_group > td.colShaded_ {
+	background: #affab3;
+}
+
+.largeText {
+    font-size: 15px;
+}
+
+table.small_text tbody tr>td {
+
+    font-size: 90%;
+}
+
+
